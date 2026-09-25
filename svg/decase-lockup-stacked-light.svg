@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 220" role="img" aria-label="de-Case lockup">
+  <title>de-Case lockup</title>
+  <g transform="translate(72 24) scale(4)">
+    <g fill="none" stroke="#161616" stroke-width="2.5" stroke-linecap="butt" stroke-linejoin="round">
+      <path d="M14.15 3.25 H4.5 Q3.25 3.25 3.25 4.5 V19.5 Q3.25 20.75 4.5 20.75 H19.5 Q20.75 20.75 20.75 19.5 V9.55"/>
+    </g>
+    <ellipse cx="14.15" cy="3.25" rx="1.4" ry="1.05" transform="rotate(-16 14.15 3.25)" fill="#161616"/>
+    <ellipse cx="20.55" cy="9.55" rx="1.05" ry="1.45" transform="rotate(28 20.55 9.55)" fill="#161616"/>
+    <rect x="10" y="10" width="4" height="4" fill="#0F62FE"/>
+  </g>
+  <text x="58" y="178" font-family="'IBM Plex Sans','Helvetica Neue',Arial,sans-serif" font-weight="600" font-size="36" letter-spacing="-0.02em" fill="#161616">de</text>
+  <rect x="102" y="163" width="11" height="4" fill="#0F62FE"/>
+  <text x="119" y="178" font-family="'IBM Plex Sans','Helvetica Neue',Arial,sans-serif" font-weight="600" font-size="36" letter-spacing="-0.02em" fill="#161616">Case</text>
+</svg>

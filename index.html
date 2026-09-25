@@ -1,0 +1,710 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>de-Case — Brand Identity Guidelines</title>
+  <meta name="description" content="de-Case Brand lock v0.1 — Core Identity mark + blue-hyphen wordmark." />
+  <link rel="icon" href="svg/decase-favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ibm-blue: #0F62FE;
+      --deep-ink: #161616;
+      --graphite: #262626;
+      --gray: #393939;
+      --light: #F4F4F4;
+      --white: #FFFFFF;
+      --success: #24A148;
+      --warning: #F1C21B;
+      --critical: #DA1E28;
+      --slate: #6F6F6F;
+      --hairline: #E0E0E0;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+      background: var(--light);
+      color: var(--deep-ink);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 1060px; margin: 0 auto; padding: 0 28px 96px; }
+
+    h1 { font-size: 44px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 0; }
+    h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 6px; }
+    h3 { font-size: 15px; font-weight: 600; margin: 0 0 4px; }
+    p { margin: 0 0 12px; max-width: 68ch; }
+    .muted { color: var(--slate); }
+    .small { font-size: 13px; }
+    .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+
+    .section { padding: 56px 0 8px; border-top: 1px solid var(--hairline); margin-top: 48px; }
+    .section:first-of-type { border-top: 0; margin-top: 0; }
+    .kicker {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--ibm-blue); margin-bottom: 10px;
+    }
+
+    .hero { padding: 72px 0 24px; }
+    .hero-row { display: flex; gap: 48px; align-items: center; flex-wrap: wrap; }
+    .hero-copy { flex: 1; min-width: 280px; }
+    .hero-mark {
+      width: 160px; height: 160px; flex-shrink: 0;
+      background: var(--deep-ink);
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--deep-ink);
+    }
+    .hero-mark img { width: 88px; height: 88px; }
+    .idea {
+      margin-top: 20px; padding: 16px 18px;
+      border-left: 3px solid var(--ibm-blue);
+      background: var(--white);
+      font-size: 17px; font-weight: 500; max-width: 52ch;
+    }
+
+    .grid { display: grid; gap: 18px; }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-4 { grid-template-columns: repeat(4, 1fr); }
+    @media (max-width: 860px) {
+      .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      h1 { font-size: 34px; }
+    }
+    @media (max-width: 540px) {
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    }
+
+    .tile { border: 1px solid var(--hairline); overflow: hidden; background: var(--white); }
+    .tile-stage { display: flex; align-items: center; justify-content: center; min-height: 170px; padding: 24px; }
+    .tile-meta { border-top: 1px solid var(--hairline); padding: 10px 14px 12px; background: var(--white); }
+    .tile-meta h3 { font-size: 13px; }
+    .tile-meta p { font-size: 12px; color: var(--slate); margin: 0; }
+
+    .bg-light { background: var(--light); }
+    .bg-ink { background: var(--deep-ink); }
+    .bg-blue { background: var(--ibm-blue); }
+    .bg-white { background: var(--white); }
+
+    .download-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .download {
+      display: inline-block; padding: 5px 12px;
+      border: 1px solid var(--deep-ink);
+      color: var(--deep-ink); text-decoration: none;
+      font-size: 12px; font-weight: 600; background: transparent;
+    }
+    .download:hover { background: var(--deep-ink); color: var(--white); }
+    .download.accent { border-color: var(--ibm-blue); color: var(--ibm-blue); }
+    .download.accent:hover { background: var(--ibm-blue); color: var(--white); border-color: var(--ibm-blue); }
+
+    .wm {
+      display: inline-flex; align-items: baseline; gap: 0;
+      font-weight: 600; font-size: 40px; letter-spacing: -0.02em; line-height: 1;
+      white-space: nowrap;
+    }
+    .wm .bus {
+      display: inline-block; width: 0.28em; height: 0.12em;
+      background: var(--ibm-blue); margin: 0 0.08em 0.18em;
+      vertical-align: middle; flex-shrink: 0;
+    }
+    .wm.on-dark { color: var(--white); }
+    .wm.on-light { color: var(--deep-ink); }
+    .wm.mono-ink .bus { background: var(--deep-ink); }
+    .wm.mono-white { color: var(--white); }
+    .wm.mono-white .bus { background: var(--white); }
+    .wm.sm { font-size: 28px; }
+
+    .lockup { display: flex; align-items: center; gap: 16px; }
+    .lockup-stacked { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .mark-inline { width: 48px; height: 48px; display: block; }
+
+    .swatch-chip { height: 84px; border: 1px solid var(--hairline); }
+    .swatch h3 { margin-top: 8px; }
+    .swatch p { font-size: 12px; color: var(--slate); margin: 0; }
+
+    .geo {
+      display: grid; grid-template-columns: 220px 1fr; gap: 28px; align-items: start;
+    }
+    @media (max-width: 700px) { .geo { grid-template-columns: 1fr; } }
+    .geo-board {
+      width: 220px; height: 220px; background: var(--deep-ink);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .geo-board img { width: 140px; height: 140px; }
+    .spec-list { margin: 0; padding-left: 18px; }
+    .spec-list li { margin-bottom: 6px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 12px 0 0; }
+    th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+    th { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--slate); font-weight: 600; }
+
+    .never-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+    @media (max-width: 860px) { .never-grid { grid-template-columns: repeat(2, 1fr); } }
+    .never-card { border: 1px solid var(--hairline); background: var(--white); padding: 14px; }
+    .never-x {
+      display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+      color: var(--critical); margin-bottom: 8px;
+    }
+    .never-preview {
+      height: 88px; margin-bottom: 10px; display: flex; align-items: center; justify-content: center;
+      background: var(--deep-ink); position: relative; overflow: hidden;
+    }
+    .never-preview img { width: 48px; height: 48px; opacity: 0.85; }
+    .never-preview.bad-fill img { filter: none; }
+    .never-preview.bad-stretch img { width: 72px; height: 36px; }
+    .never-preview.bad-glow img { filter: drop-shadow(0 0 8px #0F62FE); }
+    .never-preview.bad-rotate img { transform: rotate(90deg); }
+
+    .scale-row { display: flex; align-items: flex-end; gap: 28px; flex-wrap: wrap; margin-top: 16px; }
+    .scale-item { text-align: center; }
+    .scale-item span { display: block; font-size: 11px; color: var(--slate); margin-top: 6px; font-family: "IBM Plex Mono", monospace; }
+
+    .product-mock {
+      background: var(--graphite); color: var(--light);
+      padding: 48px 24px; text-align: center; border: 1px solid var(--deep-ink);
+      max-width: 420px;
+    }
+    .product-mock img { width: 56px; height: 56px; margin-bottom: 18px; }
+    .product-mock .wm { font-size: 28px; justify-content: center; }
+    .product-mock .serial {
+      margin-top: 14px; font-family: "IBM Plex Mono", monospace;
+      font-size: 12px; letter-spacing: 0.12em; color: var(--slate);
+    }
+
+    .toc {
+      display: flex; flex-wrap: wrap; gap: 8px 16px;
+      padding: 16px 0 8px; font-size: 13px; font-weight: 500;
+    }
+    .toc a { color: var(--deep-ink); text-decoration: none; border-bottom: 1px solid transparent; }
+    .toc a:hover { border-bottom-color: var(--ibm-blue); color: var(--ibm-blue); }
+
+    footer {
+      margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--hairline);
+      font-size: 13px; color: var(--slate);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <p class="kicker muted" style="color:var(--slate)">Brand Identity Guidelines · v0.1 · 2026</p>
+      <div class="hero-row">
+        <div class="hero-mark" aria-hidden="true">
+          <img src="svg/decase-mark-reversed.svg" alt="" />
+        </div>
+        <div class="hero-copy">
+          <h1>de<span style="color:var(--ibm-blue)">-</span>Case</h1>
+          <p class="muted" style="margin-top:12px;font-size:15px;letter-spacing:0.06em;text-transform:uppercase;font-weight:500">
+            Offline Field Workstation
+          </p>
+          <p class="idea">
+            de-Case is an open, operator-controlled boundary around a sovereign mission core.
+          </p>
+        </div>
+      </div>
+      <nav class="toc" aria-label="Sections">
+        <a href="#idea">01 Idea</a>
+        <a href="#geometry">02 Geometry</a>
+        <a href="#variants">03 Variants</a>
+        <a href="#lockups">04 Lockups</a>
+        <a href="#wordmark">05 Wordmark</a>
+        <a href="#type">06 Typography</a>
+        <a href="#color">07 Color</a>
+        <a href="#clearspace">08 Clear space</a>
+        <a href="#scale">09 Scale</a>
+        <a href="#product">10 Product</a>
+        <a href="#never">11 Incorrect</a>
+        <a href="#assets">12 Assets</a>
+      </nav>
+    </header>
+
+    <section class="section" id="idea">
+      <p class="kicker">01 — Brand idea</p>
+      <h2>Open frame + mission core</h2>
+      <p>
+        The primary mark combines an <strong>open frame</strong> with a <strong>blue core node</strong>.
+        The frame is the physical case and sovereign boundary — inspectable, extensible, modular.
+        The opening means capabilities can attach and detach; the system is not sealed.
+        The blue node is the operator-controlled mission core.
+      </p>
+      <p class="muted small">
+        It must not read as a shield, surveillance eye, weapon, or military unit.
+        Selected direction: Concept 01 mark + Concept 05 blue-hyphen wordmark. No further mark exploration.
+      </p>
+    </section>
+
+    <section class="section" id="geometry">
+      <p class="kicker">02 — Construction</p>
+      <h2>Geometry</h2>
+      <div class="geo">
+        <div class="geo-board">
+          <img src="svg/decase-mark-reversed.svg" alt="de-Case mark on 24-unit grid" />
+        </div>
+        <div>
+          <p>
+            Drawn on a <strong>24-unit grid</strong>. Stroke mass is a consistent <strong>2.5u</strong>
+            with <strong>round joins and caps</strong>. Opening sits at the top-right and is
+            <strong>softly deformed</strong> — not a hard rectangular bite.
+            Only the core node is a sharp <strong>4×4u</strong> square centered at (12, 12).
+          </p>
+          <ul class="spec-list">
+            <li>Frame corners are soft/rounded — not a hard square enclosure</li>
+            <li>Opening terminals are slightly organic (round caps + gentle inward curve)</li>
+            <li>Blue core stays perfectly sharp — the only right angles in the mark</li>
+            <li>Flat solids / strokes — no gradients, shadows, bevels, or 3D</li>
+            <li>Opening is deliberate and permanent — do not close the frame</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="variants">
+      <p class="kicker">03 — Color variants</p>
+      <h2>Four approved mark variants</h2>
+      <div class="grid grid-4" style="margin-top:18px">
+        <div class="tile">
+          <div class="tile-stage bg-light">
+            <img src="svg/decase-mark-color.svg" width="72" height="72" alt="Color mark" />
+          </div>
+          <div class="tile-meta">
+            <h3>Color — primary</h3>
+            <p>Deep Ink frame + IBM Blue core on light</p>
+            <div class="download-row">
+              <a class="download" href="svg/decase-mark-color.svg" download>SVG</a>
+            </div>
+          </div>
+        </div>
+        <div class="tile">
+          <div class="tile-stage bg-ink">
+            <img src="svg/decase-mark-reversed.svg" width="72" height="72" alt="Reversed mark" />
+          </div>
+          <div class="tile-meta">
+            <h3>Reversed</h3>
+            <p>Dark UI, hardware, night surfaces</p>
+            <div class="download-row">
+              <a class="download" href="svg/decase-mark-reversed.svg" download>SVG</a>
+            </div>
+          </div>
+        </div>
+        <div class="tile">
+          <div class="tile-stage bg-light">
+            <img src="svg/decase-mark-mono.svg" width="72" height="72" alt="Monochrome mark" />
+          </div>
+          <div class="tile-meta">
+            <h3>Monochrome</h3>
+            <p>Engraving, PCB silkscreen, single-ink</p>
+            <div class="download-row">
+              <a class="download" href="svg/decase-mark-mono.svg" download>SVG</a>
+            </div>
+          </div>
+        </div>
+        <div class="tile">
+          <div class="tile-stage bg-ink">
+            <img src="svg/decase-mark-mono-white.svg" width="72" height="72" alt="White mono mark" />
+          </div>
+          <div class="tile-meta">
+            <h3>Mono white</h3>
+            <p>Laser etch preview / dark photo</p>
+            <div class="download-row">
+              <a class="download" href="svg/decase-mark-mono-white.svg" download>SVG</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin-top:36px">Social &amp; profile</h3>
+      <p class="muted small">Square SVGs — drop into LinkedIn / GitHub / X. Prefer the dark app icon.</p>
+      <div class="grid grid-4" style="margin-top:14px">
+        <div class="tile">
+          <div class="tile-stage bg-ink" style="padding:0;min-height:140px">
+            <img src="svg/decase-app-icon.svg" width="140" height="140" alt="App icon" />
+          </div>
+          <div class="tile-meta">
+            <h3>App icon</h3>
+            <p>Recommended default avatar</p>
+            <div class="download-row"><a class="download accent" href="svg/decase-app-icon.svg" download>SVG</a></div>
+          </div>
+        </div>
+        <div class="tile">
+          <div class="tile-stage" style="padding:0;min-height:140px">
+            <img src="svg/decase-profile-dark.svg" width="140" height="140" alt="Profile dark" />
+          </div>
+          <div class="tile-meta">
+            <h3>Profile — dark</h3>
+            <p>Deep Ink field</p>
+            <div class="download-row"><a class="download" href="svg/decase-profile-dark.svg" download>SVG</a></div>
+          </div>
+        </div>
+        <div class="tile">
+          <div class="tile-stage" style="padding:0;min-height:140px">
+            <img src="svg/decase-profile-light.svg" width="140" height="140" alt="Profile light" />
+          </div>
+          <div class="tile-meta">
+            <h3>Profile — light</h3>
+            <p>Light field</p>
+            <div class="download-row"><a class="download" href="svg/decase-profile-light.svg" download>SVG</a></div>
+          </div>
+        </div>
+        <div class="tile">
+          <div class="tile-stage" style="padding:0;min-height:140px">
+            <img src="svg/decase-profile-blue.svg" width="140" height="140" alt="Profile blue" />
+          </div>
+          <div class="tile-meta">
+            <h3>Profile — blue</h3>
+            <p>Bold brand field</p>
+            <div class="download-row"><a class="download" href="svg/decase-profile-blue.svg" download>SVG</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="lockups">
+      <p class="kicker">04 — Lockups</p>
+      <h2>Four official configurations</h2>
+      <p class="muted small">No separate logos for Field, CaseMind, CaseNet, OS — products inherit the identity as a line under the wordmark.</p>
+      <table>
+        <thead>
+          <tr><th>Variant</th><th>Use</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Mark only</strong></td><td>Favicon, Operator icon, hardware badge</td></tr>
+          <tr><td><strong>Mark + de-Case</strong></td><td>Primary company / product lockup</td></tr>
+          <tr><td><strong>de-Case wordmark</strong></td><td>GitHub, documents, website headers</td></tr>
+          <tr><td><strong>Monochrome</strong></td><td>Engraving, PCB silkscreen, manufacturing</td></tr>
+        </tbody>
+      </table>
+
+      <div class="grid grid-2" style="margin-top:24px">
+        <div class="tile">
+          <div class="tile-stage bg-light">
+            <div class="lockup">
+              <img class="mark-inline" src="svg/decase-mark-color.svg" alt="" />
+              <span class="wm on-light sm">de<span class="bus"></span>Case</span>
+            </div>
+          </div>
+          <div class="tile-meta">
+            <h3>Horizontal — light</h3>
+            <p>Websites, dashboards, docs, email</p>
+            <div class="download-row">
+              <a class="download" href="svg/decase-lockup-horizontal-light.svg" download>SVG</a>
+            </div>
+          </div>
+        </div>
+        <div class="tile">
+          <div class="tile-stage bg-ink">
+            <div class="lockup">
+              <img class="mark-inline" src="svg/decase-mark-reversed.svg" alt="" />
+              <span class="wm on-dark sm">de<span class="bus"></span>Case</span>
+            </div>
+          </div>
+          <div class="tile-meta">
+            <h3>Horizontal — dark</h3>
+            <p>Operator UI, dark surfaces</p>
+            <div class="download-row">
+              <a class="download" href="svg/decase-lockup-horizontal-dark.svg" download>SVG</a>
+            </div>
+          </div>
+        </div>
+        <div class="tile">
+          <div class="tile-stage bg-light" style="min-height:220px">
+            <div class="lockup-stacked">
+              <img src="svg/decase-mark-color.svg" width="72" height="72" alt="" />
+              <span class="wm on-light sm">de<span class="bus"></span>Case</span>
+            </div>
+          </div>
+          <div class="tile-meta">
+            <h3>Stacked — light</h3>
+            <p>Splash, posters, square placements</p>
+            <div class="download-row">
+              <a class="download" href="svg/decase-lockup-stacked-light.svg" download>SVG</a>
+            </div>
+          </div>
+        </div>
+        <div class="tile">
+          <div class="tile-stage bg-ink" style="min-height:220px">
+            <div class="lockup-stacked">
+              <img src="svg/decase-mark-reversed.svg" width="72" height="72" alt="" />
+              <span class="wm on-dark sm">de<span class="bus"></span>Case</span>
+            </div>
+          </div>
+          <div class="tile-meta">
+            <h3>Stacked — dark</h3>
+            <p>Splash, dark square placements</p>
+            <div class="download-row">
+              <a class="download" href="svg/decase-lockup-stacked-dark.svg" download>SVG</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin-top:32px">Product naming under the identity</h3>
+      <div class="grid grid-3" style="margin-top:12px">
+        <div class="tile">
+          <div class="tile-stage bg-ink" style="flex-direction:column;gap:10px">
+            <span class="wm on-dark sm">de<span class="bus"></span>Case</span>
+            <span class="mono" style="color:var(--slate);font-size:12px;letter-spacing:0.16em">FIELD</span>
+          </div>
+        </div>
+        <div class="tile">
+          <div class="tile-stage bg-ink" style="flex-direction:column;gap:10px">
+            <span class="wm on-dark sm">de<span class="bus"></span>Case</span>
+            <span class="mono" style="color:var(--slate);font-size:12px;letter-spacing:0.16em">CASEMIND</span>
+          </div>
+        </div>
+        <div class="tile">
+          <div class="tile-stage bg-ink" style="flex-direction:column;gap:10px">
+            <span class="wm on-dark sm">de<span class="bus"></span>Case</span>
+            <span class="mono" style="color:var(--slate);font-size:12px;letter-spacing:0.16em">OS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="wordmark">
+      <p class="kicker">05 — Wordmark</p>
+      <h2>de-Case with a blue connection bus</h2>
+      <p>
+        Letters stay graphite or white. The hyphen is the distinctive brand element:
+        a thin blue rectangle — a <strong>connection / bus</strong> between two parts, not a decorative dash.
+        Do not thicken it into a bar.
+      </p>
+      <div class="grid grid-3" style="margin-top:18px">
+        <div class="tile">
+          <div class="tile-stage bg-light">
+            <span class="wm on-light">de<span class="bus"></span>Case</span>
+          </div>
+          <div class="tile-meta">
+            <h3>Light</h3>
+            <div class="download-row"><a class="download" href="svg/decase-wordmark-light.svg" download>SVG</a></div>
+          </div>
+        </div>
+        <div class="tile">
+          <div class="tile-stage bg-ink">
+            <span class="wm on-dark">de<span class="bus"></span>Case</span>
+          </div>
+          <div class="tile-meta">
+            <h3>Dark</h3>
+            <div class="download-row"><a class="download" href="svg/decase-wordmark-dark.svg" download>SVG</a></div>
+          </div>
+        </div>
+        <div class="tile">
+          <div class="tile-stage bg-light">
+            <span class="wm on-light mono-ink">de<span class="bus"></span>Case</span>
+          </div>
+          <div class="tile-meta">
+            <h3>Monochrome</h3>
+            <div class="download-row"><a class="download" href="svg/decase-wordmark-mono.svg" download>SVG</a></div>
+          </div>
+        </div>
+      </div>
+      <p class="muted small" style="margin-top:14px">
+        SVGs use IBM Plex Sans SemiBold as a live-text proxy. Outline the wordmark before production print / engraving.
+      </p>
+    </section>
+
+    <section class="section" id="type">
+      <p class="kicker">06 — Typography</p>
+      <h2>IBM Plex Sans + Mono</h2>
+      <p>
+        Wordmark direction: <strong>IBM Plex Sans SemiBold / Medium</strong>.
+        Product and docs: IBM Plex Sans. Device IDs, diagnostics, terminal: <strong>IBM Plex Mono</strong>.
+      </p>
+      <div class="tile" style="margin-top:16px;padding:24px">
+        <div style="font-size:32px;font-weight:600;letter-spacing:-0.02em">de-Case Field Workstation</div>
+        <div style="font-size:16px;margin-top:8px;color:var(--slate)">IBM Plex Sans — UI, docs, marketing</div>
+        <div class="mono" style="font-size:14px;margin-top:16px">V1-001 · UART · /dev/ttyUSB0 · PIFS_MOCK_CONTROLLERS=1</div>
+        <div style="font-size:12px;margin-top:6px;color:var(--slate)">IBM Plex Mono — IDs, diagnostics, labels</div>
+      </div>
+    </section>
+
+    <section class="section" id="color">
+      <p class="kicker">07 — Color</p>
+      <h2>Brand core vs product status</h2>
+      <p>Brand core is frozen. Status colors are product semantics — not branding.</p>
+      <h3 style="margin-top:20px">Brand core</h3>
+      <div class="grid grid-3" style="margin-top:12px">
+        <div class="swatch">
+          <div class="swatch-chip" style="background:#0F62FE"></div>
+          <h3>IBM Blue</h3>
+          <p class="mono">#0F62FE · core node, hyphen, accent · ~10%</p>
+        </div>
+        <div class="swatch">
+          <div class="swatch-chip" style="background:#161616"></div>
+          <h3>Deep Ink</h3>
+          <p class="mono">#161616 · structure, dark surfaces · ~60%</p>
+        </div>
+        <div class="swatch">
+          <div class="swatch-chip" style="background:#262626"></div>
+          <h3>Graphite</h3>
+          <p class="mono">#262626 · panels, enclosure</p>
+        </div>
+        <div class="swatch">
+          <div class="swatch-chip" style="background:#393939"></div>
+          <h3>Gray</h3>
+          <p class="mono">#393939 · secondary surfaces</p>
+        </div>
+        <div class="swatch">
+          <div class="swatch-chip" style="background:#F4F4F4"></div>
+          <h3>Light</h3>
+          <p class="mono">#F4F4F4 · light surfaces · ~30%</p>
+        </div>
+        <div class="swatch">
+          <div class="swatch-chip" style="background:#FFFFFF;border-color:#ccc"></div>
+          <h3>White</h3>
+          <p class="mono">#FFFFFF · type / frame on dark</p>
+        </div>
+      </div>
+      <h3 style="margin-top:28px">Status (product only)</h3>
+      <div class="grid grid-3" style="margin-top:12px">
+        <div class="swatch">
+          <div class="swatch-chip" style="background:#24A148"></div>
+          <h3>Success</h3>
+          <p class="mono">#24A148</p>
+        </div>
+        <div class="swatch">
+          <div class="swatch-chip" style="background:#F1C21B"></div>
+          <h3>Warning</h3>
+          <p class="mono">#F1C21B</p>
+        </div>
+        <div class="swatch">
+          <div class="swatch-chip" style="background:#DA1E28"></div>
+          <h3>Critical</h3>
+          <p class="mono">#DA1E28</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top:28px">Tagline policy</h3>
+      <table>
+        <thead><tr><th>Context</th><th>Language</th></tr></thead>
+        <tbody>
+          <tr><td>Technical / investor</td><td>Portable Offline Intelligence Platform</td></tr>
+          <tr><td>Public / product</td><td>Offline Field Workstation</td></tr>
+          <tr><td>Logo lockups</td><td>Prefer <strong>no tagline</strong> under the mark</td></tr>
+          <tr><td>Avoid publicly</td><td>“Field Intelligence Platform” (agency / surveillance reading)</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section" id="clearspace">
+      <p class="kicker">08 — Clear space &amp; minima</p>
+      <h2>One stroke of air, always</h2>
+      <p>Clear space equals one stroke width (2.5u) on all sides of the outer frame. Nothing enters the opening or covers the core node.</p>
+      <table>
+        <thead>
+          <tr><th>Asset</th><th>Digital minimum</th><th>Print / hardware</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Mark</td><td>16 px</td><td>5 mm (target 50 mm engraving OK)</td></tr>
+          <tr><td>Horizontal lockup</td><td>96 px</td><td>28 mm</td></tr>
+          <tr><td>Stacked lockup</td><td>64 px</td><td>20 mm</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section" id="scale">
+      <p class="kicker">09 — Scale</p>
+      <h2>Same geometry at every size</h2>
+      <p class="muted small">No simplified small-size variant. One path set for 16 px favicon and 50 mm hardware etch.</p>
+      <div class="scale-row">
+        <div class="scale-item"><img src="svg/decase-mark-color.svg" width="96" height="96" alt=""/><span>96 px</span></div>
+        <div class="scale-item"><img src="svg/decase-mark-color.svg" width="64" height="64" alt=""/><span>64 px</span></div>
+        <div class="scale-item"><img src="svg/decase-mark-color.svg" width="32" height="32" alt=""/><span>32 px</span></div>
+        <div class="scale-item"><img src="svg/decase-mark-color.svg" width="24" height="24" alt=""/><span>24 px</span></div>
+        <div class="scale-item"><img src="svg/decase-mark-color.svg" width="16" height="16" alt=""/><span>16 px</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="product">
+      <p class="kicker">10 — Physical product</p>
+      <h2>Restrained on the V1 case</h2>
+      <p>Black / graphite enclosure. White or laser-etched branding. One blue core accent where material permits. No giant lid logos.</p>
+      <div class="product-mock" style="margin-top:18px">
+        <img src="svg/decase-mark-reversed.svg" alt="" />
+        <div class="wm on-dark sm">de<span class="bus"></span>Case</div>
+        <div class="serial">FIELD / V1-001</div>
+      </div>
+    </section>
+
+    <section class="section" id="never">
+      <p class="kicker">11 — Incorrect usage</p>
+      <h2>Never</h2>
+      <div class="never-grid" style="margin-top:16px">
+        <div class="never-card">
+          <div class="never-preview bad-fill">
+            <svg viewBox="0 0 24 24" width="48" height="48"><path fill="none" stroke="#F4F4F4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M4.5 3.25 H19.5 Q20.75 3.25 20.75 4.5 V19.5 Q20.75 20.75 19.5 20.75 H4.5 Q3.25 20.75 3.25 19.5 V4.5 Q3.25 3.25 4.5 3.25"/><rect x="10" y="10" width="4" height="4" fill="#0F62FE"/></svg>
+          </div>
+          <span class="never-x">✕ CLOSED FRAME</span>
+          <h3>Close the opening</h3>
+          <p class="small muted">The opening is the extensibility signal</p>
+        </div>
+        <div class="never-card">
+          <div class="never-preview">
+            <svg viewBox="0 0 24 24" width="48" height="48"><path fill="#F4F4F4" d="M2 2h14.5v2.5H4.5v15h15V8.5H22V22H2V2z"/><rect x="10" y="10" width="4" height="4" fill="#0F62FE"/></svg>
+          </div>
+          <span class="never-x">✕ HARD CUT</span>
+          <h3>Square-cut opening</h3>
+          <p class="small muted">Opening ends stay soft and slightly deformed</p>
+        </div>
+        <div class="never-card">
+          <div class="never-preview bad-rotate">
+            <img src="svg/decase-mark-reversed.svg" alt="" />
+          </div>
+          <span class="never-x">✕ ROTATED</span>
+          <h3>Rotate 90°</h3>
+          <p class="small muted">Keep upright; opening stays top-right</p>
+        </div>
+        <div class="never-card">
+          <div class="never-preview bad-stretch">
+            <img src="svg/decase-mark-reversed.svg" alt="" />
+          </div>
+          <span class="never-x">✕ STRETCHED</span>
+          <h3>Distort proportions</h3>
+          <p class="small muted">Lock the 24u square</p>
+        </div>
+        <div class="never-card">
+          <div class="never-preview bad-glow">
+            <img src="svg/decase-mark-reversed.svg" alt="" />
+          </div>
+          <span class="never-x">✕ EFFECTS</span>
+          <h3>Glow / 3D / gradient</h3>
+          <p class="small muted">Flat solids only, forever</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="assets">
+      <p class="kicker">12 — Assets &amp; naming</p>
+      <h2>File naming convention</h2>
+      <p class="mono small">decase-[asset]-[variant].[format]</p>
+      <table>
+        <thead><tr><th>File</th><th>Use</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">svg/decase-mark-*.svg</td><td>Vector masters (print / scale freely)</td></tr>
+          <tr><td class="mono">svg/decase-lockup-horizontal-*.svg</td><td>Default lockup vectors</td></tr>
+          <tr><td class="mono">svg/decase-lockup-stacked-*.svg</td><td>Stacked lockup vectors</td></tr>
+          <tr><td class="mono">svg/decase-wordmark-*.svg</td><td>Wordmark-only vectors</td></tr>
+          <tr><td class="mono">svg/decase-app-icon.svg</td><td>Social / app icon (recommended)</td></tr>
+          <tr><td class="mono">svg/decase-profile-*.svg</td><td>Square profile fields</td></tr>
+          <tr><td class="mono">svg/decase-favicon.svg</td><td>Browser favicon</td></tr>
+        </tbody>
+      </table>
+      <p class="muted small" style="margin-top:12px">
+        Pattern follows the LADS TV brand kit at
+        <a href="https://ladstv.github.io/ladstv-brand/" style="color:var(--ibm-blue)">ladstv.github.io/ladstv-brand</a>.
+        Raster PNGs can be derived from these SVG masters; never redraw.
+      </p>
+    </section>
+
+    <footer>
+      de-Case Brand lock v0.1 · <span class="mono">de-case-field</span> ·
+      Source also lives in the Field monorepo under <span class="mono">brand/</span>
+    </footer>
+  </div>
+</body>
+</html>

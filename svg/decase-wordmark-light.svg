@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 64" role="img" aria-label="de-Case wordmark">
+  <!--
+    de-Case wordmark  Brand lock v0.1
+    Live-text proxy: IBM Plex Sans SemiBold.
+    Outline with production type before print / engraving.
+    Blue hyphen = connection/bus (#0F62FE), not a decorative dash.
+  -->
+  <title>de-Case wordmark</title>
+  <text
+    x="0" y="46"
+    font-family="'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif"
+    font-weight="600"
+    font-size="48"
+    letter-spacing="-0.02em"
+    fill="#161616"
+  >de</text>
+  <!-- Connection bus / hyphen -->
+  <rect x="58" y="28" width="14" height="5" rx="0" fill="#0F62FE"/>
+  <text
+    x="78" y="46"
+    font-family="'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif"
+    font-weight="600"
+    font-size="48"
+    letter-spacing="-0.02em"
+    fill="#161616"
+  >Case</text>
+</svg>
